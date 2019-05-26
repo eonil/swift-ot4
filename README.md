@@ -19,18 +19,27 @@ Cocoa Binding is deprecated, and not the solution.
 
 Here OT4 is in rescue!
 --------------------------
-OT4 provides clean value-based idempotent rendering. 
-For the simplest case, you just build a tree and pass it
-to `OT4SnapshotView`. Here's an over-simplified example.
+There's one problem with `OT4SnapshotView`. Rendering a 
+snapshot always takes `O(n log n)` time where `n` is total 
+number of nodes in the tree. If it's a problem for you, please 
+use `OT4View` class. Which implements better difference 
+tracking at lower time but with more difficult value build-up.
 
-    let v = OT4SnapshotView<OT4KeyValueTree>
-    var s = OT4KeyValueTree(key: 111, value: "top") 
-    s.subtrees.append(OT4KeyValueTree(key: 222, value: "first")
-    s.subtrees.append(OT4KeyValueTree(key: 333, value: "second")
-    s.subtrees.append(OT4KeyValueTree(key: 444, value: "third")
+    typealias Source = OT4Source<Int,String>
+    typealias View = OT4View<Source,OT4ItemView<String>> 
+    let v = View()
+    var s = Source() 
+    s.timeline.insert("This", for: 1, at: [])
+    s.timeline.insert("is", for: 2, at: [0])
+    s.timeline.insert("a", for: 3, at: [0,0])
+    s.timeline.insert("demo!", for: 4, at: [1])
     v.control(.render(s))
-    
+
     // Done!
+
+You'll get this.
+
+![ScreenShot](OT4Demo/ScreenShot.png)
 
 Rendering same value yields same result.
 
@@ -57,29 +66,29 @@ You gonna see something like this.
 
 
 
-Slow? Consider `OT4View` 
--------------------------------
-There's one problem with `OT4SnapshotView`. Rendering a 
-snapshot always takes `O(n log n)` time where `n` is total 
-number of nodes in the tree. If it's a problem for you, please 
-use `OT4View` class. Which implements better difference 
-tracking at lower time but with more difficult value build-up.
+For Snapshot to Snapshot Rendering
+-----------------------------------------------
+`OT4Source` based rendering requires you to keep once
+created value and mutate it. If you don't have choice 
+and want simple snapshot to snapshot rendering
+you can use `OT4SnapshotView` instead of.
 
-    typealias Source = OT4Source<Int,String>
-    typealias View = OT4View<Source,OT4ItemView<String>> 
-    let v = View()
-    var s = Source() 
-    s.timeline.insert("This", for: 1, at: [])
-    s.timeline.insert("is", for: 2, at: [0])
-    s.timeline.insert("a", for: 3, at: [0,0])
-    s.timeline.insert("demo!", for: 4, at: [1])
+    let v = OT4SnapshotView<OT4KeyValueTree>
+    var s = OT4KeyValueTree(key: 111, value: "top") 
+    s.subtrees.append(OT4KeyValueTree(key: 222, value: "first")
+    s.subtrees.append(OT4KeyValueTree(key: 333, value: "second")
+    s.subtrees.append(OT4KeyValueTree(key: 444, value: "third")
     v.control(.render(s))
-
+    
     // Done!
 
-You'll get this.
+But rendering with `OT4SnapshotView` always takes `O(n)`.
+Choose if you need something quick and dirty working stuff.
 
-![ScreenShot](OT4Demo/ScreenShot.png)
+Or if you're willing to write more code, you can implement
+`OT4SourceProtocol` yourself. All data consumption is
+protocol based. You can wrap your data to feed it to 
+`OT4View`.
 
 
 
