@@ -40,6 +40,7 @@ ItemView.State == Source.Timeline.Snapshot.State {
         // to position `NSTableCellView.textField`.
         // Otherwise, it won't position it properly.
         outlineView.rowSizeStyle = .default
+        outlineView.headerView = nil
     }
     /// Enqueues a control message and processes at ready.
     func control(_ c: Control) {

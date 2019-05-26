@@ -18,7 +18,7 @@
 ///     You can insert/modify/remove element in existing tree
 ///     and it will take O(depth).
 ///
-struct VisibilityTrackingTree2: TreeProtocol, MutableTreeProtocol {
+struct VisibilityTrackingTree2: OT4TreeProtocol, OT4MutableTreeProtocol {
     var isExpanded = false
     var subtrees = VTTSubtreeCollection()
 

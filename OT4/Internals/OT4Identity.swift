@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Convenient global uniqueness based on pointer.
 final class OT4Identity: Hashable {
     static func == (_ a: OT4Identity, _ b: OT4Identity) -> Bool {
         return ObjectIdentifier(a) == ObjectIdentifier(b)

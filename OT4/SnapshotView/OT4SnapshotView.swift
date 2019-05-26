@@ -14,7 +14,7 @@ import AppKit
 /// Though `OT4View` provides precise tracking of
 /// each node identity with `<O(n)` time, sometimes
 /// you need simplicity more than performance.
-/// This view provides simple tree snapshot value
+/// This view provides simple & flexible tree value
 /// based rendering for you.
 ///
 /// In this class, you can use simplified tree data,

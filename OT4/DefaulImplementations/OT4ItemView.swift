@@ -10,7 +10,10 @@ import Foundation
 import AppKit
 
 /// Default implementation of `OT4ItemViewProtocol`.
-public final class OT4ItemView<Value>: NSTableCellView, OT4ItemViewProtocol where
+public final class OT4ItemView<Value>:
+    NSTableCellView,
+    OT4ItemViewProtocol
+    where
 Value: LosslessStringConvertible {
     public func control(_ c: OT4ItemViewControl<Value>) {
         if textField == nil {

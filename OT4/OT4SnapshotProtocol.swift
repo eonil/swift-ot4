@@ -11,38 +11,56 @@ import Foundation
 public protocol OT4SnapshotProtocol {
     associatedtype Identity: Hashable
     associatedtype State
-    /// Stacked identities through root to the node.
-    associatedtype Path: RandomAccessCollection where Path.Element == Identity
-    ///
-    /// - Note:
-    ///     OT4 calls `firstIndex(of:)` method to find index of an identity
-    ///     in child collection. Though generic algorithm is `O(n)`, you can
-    ///     provide your own implementation for better performance if possible.
-    ///     As this method will be called very frequently, performance gain
-    ///     can be great.
-    ///     This overriding can be critical for some apps. For examples,
-    ///     if your children is strictly append-only, you can use indices
-    ///     as a part of key, and in that case, the function can be implemented
-    ///     in `O(1)` time.
-    ///
-    associatedtype ChildCollection: RandomAccessCollection where
+    /// Stacked identities from root to a node.
+    associatedtype Path: RandomAccessCollection
+        where
+        Path.Element == Identity
+
+    associatedtype ChildCollection:
+        RandomAccessCollection
+        where
         ChildCollection.Element == Identity,
         ChildCollection.Index == Int
 
+    /// Whether this there's no node in this snapshot.
+    /// - Complexity: Must be O(1).
     var isEmpty: Bool { get }
+
+    /// Total number of nodes in this snapshot.
+    /// - Complexity: Must be O(1).
     var count: Int { get }
+
+    /// Whether this snapshot contains a node for an identity.
+    /// - Complexity: Must be <= O(log n)
     func contains(_ id: Identity) -> Bool
+
+    /// Gets state of node for an identity.
+    /// "state" means arbitrary data that can be stored
+    /// for an identity.
+    /// - Complexity: Must be <= O(log n)
     func state(of id: Identity) -> State
+
+    /// Gets identities of parent node of node designated by identity.
+    /// - Complexity: Must be <= O(log n)
     func parent(of id: Identity) -> Identity?
+
+    /// Gets identities of child nodes of node designated by identity.
+    /// - Complexity: Must be <= O(log n)
     func children(of id: Identity) -> ChildCollection
-    /// - Complexity:
-    ///     Must be <= O(depth * max degree)
+
+    /// Gets path for a node for an identity.
+    /// Path is an ordered collection of identities.
+    /// - Complexity: Must be <= O(depth * max degree * log n)
     func path(of id: Identity) -> Path
-    /// - Complexity:
-    ///     Must be <= O(depth * log(max degree))
-    /// - Note:
-    ///     Crashes if there's no node in this snapshot.
+
+    /// Gets identity of node at index-path.
+    /// - Complexity: Must be <= O(depth * log n)
+    /// - Note: This function crashes if there's no node
+    ///     in this snapshot.
     func identity(at idxp: IndexPath) -> Identity
+
+    /// Gets branchability of node for an identity.
+    /// - Complexity: Must be <= O(log n)
     func branchability(of id: Identity) -> OT4Branchability
 }
 extension OT4SnapshotProtocol {
@@ -51,9 +69,17 @@ extension OT4SnapshotProtocol {
     ///
     /// - Complexity:
     ///     Default implementation uses generic algorithm
-    ///     and takes `<= O(depth * max degree)` time at
-    ///     worst.
+    ///     and takes `<= O(depth * max degree * log n)` time at worst.
     ///     Override this if you can provide better performance.
+    ///
+    ///     As this method gets called very frequently,
+    ///     performance gain by optimizing this function will be great.
+    ///
+    ///     Overriding this function can make huge difference
+    ///     in some apps. For examples, if your children is strictly
+    ///     append-only, you can use indices as a part of key,
+    ///     and in that case, the function can be implemented
+    ///     in `O(1)` time.
     ///
     func index(of id: Identity) -> IndexPath {
         guard let pid = parent(of: id) else { return [] }

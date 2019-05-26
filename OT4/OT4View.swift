@@ -9,7 +9,7 @@
 import Foundation
 import AppKit
 
-/// Simplified `NSOutlineView` with value-based rendering.
+/// Simplified `NSOutlineView` with value-based idempotent rendering.
 ///
 /// - Make *source* value.
 /// - Pass it to this view using `control` method.

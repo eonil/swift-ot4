@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension TreeProtocol where SubtreeCollection.Index == Int {
+extension OT4TreeProtocol where SubtreeCollection.Index == Int {
     subscript(_ idxp: IndexPath) -> Self {
         get {
             if idxp.isEmpty { return self }
@@ -33,7 +33,7 @@ extension TreeProtocol where SubtreeCollection.Index == Int {
     }
 }
 
-extension MutableTreeProtocol where SubtreeCollection.Index == Int {
+extension OT4MutableTreeProtocol where SubtreeCollection.Index == Int {
     subscript(_ idxp: IndexPath) -> Self {
         get {
             if idxp.isEmpty { return self }

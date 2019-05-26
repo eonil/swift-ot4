@@ -9,7 +9,7 @@
 import Foundation
 @testable import OT4
 
-struct TX1<T>: TreeProtocol {
+struct TX1<T>: OT4TreeProtocol {
     var value: T
     var subtrees = [TX1]()
 }
@@ -32,7 +32,7 @@ extension TX1 {
         return copy
     }
 }
-extension TreeProtocol {
+extension OT4TreeProtocol {
     func mapToIndexPathTree(base idxp: IndexPath = []) -> TX1<IndexPath> {
         var x = TX1<IndexPath>(value: idxp, subtrees: [])
         for (i,n) in subtrees.enumerated() {
@@ -44,7 +44,7 @@ extension TreeProtocol {
     }
 }
 
-extension TreeProtocol where SubtreeCollection.Index == Int {
+extension OT4TreeProtocol where SubtreeCollection.Index == Int {
     /// Collects only index-paths for elements that are included by filter function.
     /// Descendant nodes will also be filtered out.
     func collectAllIndexPathsDFS(isIncluded fx: (IndexPath) -> Bool = { _ in true }) -> [IndexPath] {
@@ -70,7 +70,7 @@ extension TreeProtocol where SubtreeCollection.Index == Int {
     }
 }
 
-extension TreeProtocol {
+extension OT4TreeProtocol {
     func collectAll() -> [Self] {
         var a = [Self]()
         collectAll(into: &a)

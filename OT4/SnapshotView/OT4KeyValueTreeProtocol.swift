@@ -29,3 +29,6 @@ public protocol OT4TreeProtocol {
         SubtreeCollection.Element == Self
     var subtrees: SubtreeCollection { get }
 }
+protocol OT4MutableTreeProtocol: OT4TreeProtocol where SubtreeCollection: MutableCollection {
+    var subtrees: SubtreeCollection { get set }
+}

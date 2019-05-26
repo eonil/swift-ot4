@@ -42,9 +42,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "45E7FF012298EF5700C11078"
-               BuildableName = "OT4VTTUnitTests.xctest"
-               BlueprintName = "OT4VTTUnitTests"
+               BlueprintIdentifier = "45C3A674229A031000285493"
+               BuildableName = "OT4VTT2UnitTests.xctest"
+               BlueprintName = "OT4VTT2UnitTests"
                ReferencedContainer = "container:OT4.xcodeproj">
             </BuildableReference>
          </TestableReference>

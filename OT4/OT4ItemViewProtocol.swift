@@ -9,6 +9,8 @@
 import Foundation
 import AppKit
 
+/// Represents a view that can render and edit a node state.
+/// - TODO: Editing is not implemented yet.
 public protocol OT4ItemViewProtocol: NSView {
     associatedtype State
     func control(_ c: Control)

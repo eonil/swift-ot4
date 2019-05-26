@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import OT4VTT2
+@testable import OT4
 
 class OT4vUnitTests: XCTestCase {
     func test1() {

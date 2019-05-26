@@ -6,6 +6,12 @@
 //  Copyright © 2019 Eonil. All rights reserved.
 //
 
+/// Collection of snapshots over time.
+/// It is strongly recommend to keep snapshot count <= 4.
+/// As `OT4View` has to iterate all snapshots in a timeline,
+/// keeping `n` snapshot multiplies `OT4View` processing time
+/// by `n`.
+///
 public protocol OT4TimelineProtocol: RandomAccessCollection where Self.Element == Snapshot {
     associatedtype Snapshot: OT4SnapshotProtocol
     typealias Identity = Snapshot.Identity

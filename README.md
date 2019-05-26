@@ -16,9 +16,9 @@ but IMO, it is not the solution.
 
 Here OT4 is in rescue!
 --------------------------
-OT4 provides clean value-based rendering. For the simplest case,
-you just build a tree and pass it to `OT4SnapshotView`. Here's an 
-over-simplified example.
+OT4 provides clean value-based idempotent rendering. 
+For the simplest case, you just build a tree and pass it
+to `OT4SnapshotView`. Here's an over-simplified example.
 
     let v = OT4SnapshotView<OT4KeyValueTree>
     var s = OT4KeyValueTree(key: 111, value: "top") 
@@ -28,6 +28,14 @@ over-simplified example.
     v.control(.render(s))
     
     // Done!
+
+Rendering same value yields same result.
+
+    v.control(.render(s))
+    v.control(.render(s))
+    v.control(.render(s))
+
+    // Same result.
 
 You also can track selections.
 
@@ -101,4 +109,5 @@ provides some members to access such features synchronously.
 License & Credits
 ----------------------
 This code is licensed under "MIT License".
-Copyright Eonil, Hoon H.. 2019
+Contributions will also be under "MIT License".
+Copyright Eonil, Hoon H.. 2019.

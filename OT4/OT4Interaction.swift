@@ -22,15 +22,25 @@ extension OT4VC2 {
             selectedRowIndices: sel)
     }
 }
+
+/// Defines output of `OT4View`.
+///
+/// `OT4View` emits whole interaction state for each time it
+/// changes. First point of this data is tracking selection.
 ///
 /// Why Identity Based?
 /// -------------------
-/// This value is an output note parameter, and as the OT4 is fully asynchronous,
-/// at the point of receiving note, any index-paths are already been invalidated
-/// for user's current dataset. It is useful only to find identities in older
-/// snapshot that will be delievered together within this value.
+/// This value is an output note parameter,
+/// and as the OT4 is fully asynchronous,
+/// at the point of receiving note,
+/// any index-paths are already been
+/// invalidated for user's current dataset.
+/// It is useful only to find identities
+/// in older snapshot that will be delievered
+/// together within this value.
 ///
-/// Also, exposing such invalidated index-paths is very likely to cause subtle
+/// Also, exposing such invalidated index-paths
+/// is useless and very likely to cause subtle
 /// bugs.
 ///
 public struct OT4Interaction<Snapshot> where Snapshot: OT4SnapshotProtocol {
