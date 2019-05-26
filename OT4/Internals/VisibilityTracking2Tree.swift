@@ -1,5 +1,5 @@
 //
-//  VisibilityTrackingTree2.swift
+//  VisibilityTracking2Tree.swift
 //  OT4VTTUnitTests
 //
 //  Created by Henry on 2019/05/25.
@@ -18,7 +18,7 @@
 ///     You can insert/modify/remove element in existing tree
 ///     and it will take O(depth).
 ///
-struct VisibilityTrackingTree2: OT4TreeProtocol, OT4MutableTreeProtocol {
+struct VisibilityTracking2Tree: OT4TreeProtocol, OT4MutableTreeProtocol {
     var isExpanded = false
     var subtrees = VTTSubtreeCollection()
 
@@ -30,7 +30,7 @@ struct VisibilityTrackingTree2: OT4TreeProtocol, OT4MutableTreeProtocol {
     }
 }
 struct VTTSubtreeCollection: RandomAccessCollection, MutableCollection {
-    private var elements = [VisibilityTrackingTree2]()
+    private var elements = [VisibilityTracking2Tree]()
     private(set) var totalCount = 0
     private(set) var totalVisibleCount = 0
     var startIndex: Int {
@@ -39,11 +39,11 @@ struct VTTSubtreeCollection: RandomAccessCollection, MutableCollection {
     var endIndex: Int {
         return elements.count
     }
-    subscript(_ i: Int) -> VisibilityTrackingTree2 {
+    subscript(_ i: Int) -> VisibilityTracking2Tree {
         get { return elements[i] }
         set(x) { replace(at: i, with: x) }
     }
-    mutating func insert(_ x: VisibilityTrackingTree2, at i: Int) {
+    mutating func insert(_ x: VisibilityTracking2Tree, at i: Int) {
         elements.insert(x, at: i)
         totalCount += x.totalCount
         totalVisibleCount += x.totalVisibleCount
@@ -54,7 +54,7 @@ struct VTTSubtreeCollection: RandomAccessCollection, MutableCollection {
         totalVisibleCount -= old.totalVisibleCount
         elements.remove(at: i)
     }
-    mutating func replace(at i: Int, with x: VisibilityTrackingTree2) {
+    mutating func replace(at i: Int, with x: VisibilityTracking2Tree) {
         let old = elements[i]
         totalCount -= old.totalCount
         totalVisibleCount -= old.totalVisibleCount
@@ -65,7 +65,7 @@ struct VTTSubtreeCollection: RandomAccessCollection, MutableCollection {
 }
 
 import Foundation
-extension VisibilityTrackingTree2 {
+extension VisibilityTracking2Tree {
     func findIndexPath(forVisibleRowIndex i: Int, with presolutions: (Int) -> IndexPath?) -> IndexPath {
         if let p = presolutions(i) { return p }
         return findIndexPath(forVisibleRowIndex: i)
@@ -150,7 +150,7 @@ extension VisibilityTrackingTree2 {
 }
 
 import AppKit
-extension VisibilityTrackingTree2 {
+extension VisibilityTracking2Tree {
     ///
     /// Initializes new tracking tree by copying structure
     /// of target subtree in a flat snapshot.
@@ -176,7 +176,7 @@ extension VisibilityTrackingTree2 {
         let xp = ov.isItemExpanded(px)
         isExpanded = xp
         for cid in s.children(of: id) {
-            let x1 = VisibilityTrackingTree2(with: cid, in: s, scan: ov, with: pxc)
+            let x1 = VisibilityTracking2Tree(with: cid, in: s, scan: ov, with: pxc)
             subtrees.insert(x1, at: subtrees.count)
         }
     }

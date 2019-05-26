@@ -22,7 +22,7 @@
 		45250015229A39BB00EBC602 /* OT4Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562EB682290137A00D6C74A /* OT4Identity.swift */; };
 		45250016229A39BB00EBC602 /* OT4TreeProtocol.indexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562EB6C2290137A00D6C74A /* OT4TreeProtocol.indexPath.swift */; };
 		45250017229A39BB00EBC602 /* CachingReversePathSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562EB72229016CD00D6C74A /* CachingReversePathSolver.swift */; };
-		45250018229A39BB00EBC602 /* VisibilityTrackingTree2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E7FF0D2298F99200C11078 /* VisibilityTrackingTree2.swift */; };
+		45250018229A39BB00EBC602 /* VisibilityTracking2Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E7FF0D2298F99200C11078 /* VisibilityTracking2Tree.swift */; };
 		45250019229A39BB00EBC602 /* VisibilityTracking2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C3A65D2299FC8D00285493 /* VisibilityTracking2Controller.swift */; };
 		45250032229A39C500EBC602 /* OT4SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C3A62E22992ABD00285493 /* OT4SnapshotView.swift */; };
 		45250033229A39C500EBC602 /* OT4KeyValueTreeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C3A63022992BCB00285493 /* OT4KeyValueTreeProtocol.swift */; };
@@ -168,7 +168,7 @@
 		45D4F63B229110F6004BD623 /* TX1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TX1.swift; sourceTree = "<group>"; };
 		45D4F65222913BEB004BD623 /* OT4ViewMockBasedUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OT4ViewMockBasedUnitTests.swift; sourceTree = "<group>"; };
 		45E7FF042298EF5700C11078 /* OT4VTT2UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OT4VTT2UnitTests.swift; sourceTree = "<group>"; };
-		45E7FF0D2298F99200C11078 /* VisibilityTrackingTree2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityTrackingTree2.swift; sourceTree = "<group>"; };
+		45E7FF0D2298F99200C11078 /* VisibilityTracking2Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityTracking2Tree.swift; sourceTree = "<group>"; };
 		45E7FF1322990AB500C11078 /* MM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,7 +255,7 @@
 				4562EB682290137A00D6C74A /* OT4Identity.swift */,
 				4562EB6C2290137A00D6C74A /* OT4TreeProtocol.indexPath.swift */,
 				4562EB72229016CD00D6C74A /* CachingReversePathSolver.swift */,
-				45E7FF0D2298F99200C11078 /* VisibilityTrackingTree2.swift */,
+				45E7FF0D2298F99200C11078 /* VisibilityTracking2Tree.swift */,
 				45C3A65D2299FC8D00285493 /* VisibilityTracking2Controller.swift */,
 			);
 			path = Internals;
@@ -575,7 +575,7 @@
 			files = (
 				45250035229A39C900EBC602 /* OT4SourceProtocol.swift in Sources */,
 				4525003B229A39C900EBC602 /* OT4DefaultProtocol.swift in Sources */,
-				45250018229A39BB00EBC602 /* VisibilityTrackingTree2.swift in Sources */,
+				45250018229A39BB00EBC602 /* VisibilityTracking2Tree.swift in Sources */,
 				45250014229A39BB00EBC602 /* OT4VC2.swift in Sources */,
 				450058A522981FD500681A98 /* PD5BucketConfig.swift in Sources */,
 				45C3A63A2299385800285493 /* OT4Timeline.swift in Sources */,

@@ -13,14 +13,14 @@ class OT4vUnitTests: XCTestCase {
     func test1() {
         // idxp     expand  visible
 
-        var v = VisibilityTrackingTree2()
+        var v = VisibilityTracking2Tree()
         XCTAssertEqual(v.totalCount, 1)
         XCTAssertEqual(v.totalVisibleCount, 1)
         XCTAssertEqual(v.subtrees.totalVisibleCount, 0)
         XCTAssertEqual(v.findIndexPath(forVisibleRowIndex: 0), [])
         // []       false   v
 
-        v.subtrees.insert(VisibilityTrackingTree2(), at: 0)
+        v.subtrees.insert(VisibilityTracking2Tree(), at: 0)
         XCTAssertEqual(v.totalCount, 2)
         XCTAssertEqual(v.totalVisibleCount, 1)
         XCTAssertEqual(v.subtrees.totalVisibleCount, 1)
@@ -37,7 +37,7 @@ class OT4vUnitTests: XCTestCase {
         // []       true    v
         // [0]      false   v
 
-        v.subtrees.insert(VisibilityTrackingTree2(), at: 1)
+        v.subtrees.insert(VisibilityTracking2Tree(), at: 1)
         XCTAssertEqual(v.totalCount, 3)
         XCTAssertEqual(v.totalVisibleCount, 3)
         XCTAssertEqual(v.subtrees.totalVisibleCount, 2)
@@ -48,7 +48,7 @@ class OT4vUnitTests: XCTestCase {
         // [0]      false   v
         // [1]      false   v
 
-        v.subtrees[0].subtrees.insert(VisibilityTrackingTree2(), at: 0)
+        v.subtrees[0].subtrees.insert(VisibilityTracking2Tree(), at: 0)
         XCTAssertEqual(v.totalCount, 4)
         XCTAssertEqual(v.totalVisibleCount, 3)
         XCTAssertEqual(v.subtrees.totalVisibleCount, 2)
@@ -86,7 +86,7 @@ class OT4vUnitTests: XCTestCase {
         // [0,0]    false   v
         // [1]      true    v
 
-        v.subtrees[1].subtrees.insert(VisibilityTrackingTree2(), at: 0)
+        v.subtrees[1].subtrees.insert(VisibilityTracking2Tree(), at: 0)
         XCTAssertEqual(v.totalCount, 5)
         XCTAssertEqual(v.totalVisibleCount, 5)
         XCTAssertEqual(v.subtrees.totalVisibleCount, 4)

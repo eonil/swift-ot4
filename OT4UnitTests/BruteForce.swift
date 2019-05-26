@@ -58,7 +58,7 @@ extension OT4VC2 {
     }
 }
 
-extension VisibilityTrackingTree2 {
+extension VisibilityTracking2Tree {
     func BRUTE_FORCE_collectVisibleRowIndexPaths() -> [IndexPath] {
         let idxps = collectAllIndexPathsDFS()
         var idxps1 = [IndexPath]()

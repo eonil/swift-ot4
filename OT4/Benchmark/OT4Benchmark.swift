@@ -110,11 +110,6 @@ public func benchmark() {
 
 private let idxs = Array(0..<1_000_000).shuffled()
 
-//extension OT4Timeline {
-//    func randomIndexPath(_ i: Int) -> IndexPath {
-//        return last!.randomIndexPath(i)
-//    }
-//}
 extension OT4Snapshot {
     func randomIndexPath(_ i: Int) -> IndexPath? {
         if isEmpty { return nil }

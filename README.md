@@ -90,8 +90,9 @@ your IDE can provide nice auto-completion support.
 Performance
 ----------------
 In my benchmark, `OT4View` performs at 1,000 ops/s with 
-100,000 existing items. Single operation takes about 1ms to 
-finish. It seems major bottleneck is in my HAMT implementation.
+100,000 existing items with a few seconds of initial dealy. 
+Single operation takes about 1ms to finish. 
+It seems major bottleneck is in my HAMT implementation.
 
 But It Does Not Cover Everything
 ----------------------------------------

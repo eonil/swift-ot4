@@ -14,11 +14,11 @@ struct VisibilityTracking2Controller {
     /// This property can become private
     /// if testing structure gets changed.
     /// DO NOT access this property in user code.
-    private(set) var root = VisibilityTrackingTree2?.none
+    private(set) var root = VisibilityTracking2Tree?.none
 
     init() {}
     init<S>(_ ss: S, scan ov: NSOutlineView, with pxc: OT4Snapshot<S.Identity,OT4RefProxy2<S.Identity>>) where S: OT4SnapshotProtocol {
-        root = ss.isEmpty ? nil : VisibilityTrackingTree2(
+        root = ss.isEmpty ? nil : VisibilityTracking2Tree(
             with: ss.identity(at: []),
             in: ss,
             scan: ov,
@@ -48,12 +48,12 @@ struct VisibilityTracking2Controller {
     mutating func insert(at idxp: IndexPath) {
         if idxp == [] {
             precondition(root == nil)
-            root = VisibilityTrackingTree2()
+            root = VisibilityTracking2Tree()
         }
         else {
             let pidxp = idxp.dropLast()
             let i = idxp.last!
-            root![pidxp].subtrees.insert(VisibilityTrackingTree2(), at: i)
+            root![pidxp].subtrees.insert(VisibilityTracking2Tree(), at: i)
         }
     }
     mutating func remove(at idxp: IndexPath) {
