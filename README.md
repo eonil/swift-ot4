@@ -1,6 +1,6 @@
 OT4
 ====
-A value based outline-view.
+A persistent datastructure based idempotent outline-view.
 Eonil, May 2019.
 
 This is one of trials to make `AppKit` less painful.
@@ -19,11 +19,7 @@ Cocoa Binding is deprecated, and not the solution.
 
 Here OT4 is in rescue!
 --------------------------
-There's one problem with `OT4SnapshotView`. Rendering a 
-snapshot always takes `O(n log n)` time where `n` is total 
-number of nodes in the tree. If it's a problem for you, please 
-use `OT4View` class. Which implements better difference 
-tracking at lower time but with more difficult value build-up.
+`OT4View` is fully persistent datastructure based tree rendering view.
 
     typealias Source = OT4Source<Int,String>
     typealias View = OT4View<Source,OT4ItemView<String>> 
@@ -41,7 +37,18 @@ You'll get this.
 
 ![ScreenShot](OT4Demo/ScreenShot.png)
 
-Rendering same value yields same result.
+As `Source` is persistent, it keeps all version of snapshots and changed key set.
+With that informations, view can recover diff information quickly in `O(d * log(n))` 
+time where `d` is number of changed nodes and `n` is number of total nodes. 
+Tree mutators like inserting/updating/removing node takes `O(log(n))` time.
+
+Regardless of many operations you performed, only 4 operations 
+will be tracked at maximum. More operation history will be lost.
+If diff information is lost and the view cannot continuously track the state, 
+rendering takes `O(n * log(n))` time.
+
+Also rendering is fully **idempotent**. Passing same value to the view always
+provides same final rendering.
 
     v.control(.render(s))
     v.control(.render(s))
@@ -63,16 +70,17 @@ You gonna see something like this.
     selected: [111]
     selected: [222]
     selected: [444]
-
-
+    
+    
 
 For Snapshot to Snapshot Rendering
 -----------------------------------------------
 `OT4Source` based rendering requires you to keep once
-created value and mutate in-place because to keep internally
-generated tracking informations. If you don't have choice 
-and want just simple snapshot to snapshot rendering
-you can use `OT4SnapshotView` instead of.
+created value and mutate it in-place to keep internally
+generated diff informations. But sometimes you can't always
+build your data, and need only snapshots without intermediate
+operations. In that case, you can use `OT4SnapshotView` 
+instead of for snapshot to snapshot rendering.
 
     let v = OT4SnapshotView<OT4KeyValueTree>
     var s = OT4KeyValueTree(key: 111, value: "top") 
@@ -80,10 +88,11 @@ you can use `OT4SnapshotView` instead of.
     s.subtrees.append(OT4KeyValueTree(key: 333, value: "second")
     s.subtrees.append(OT4KeyValueTree(key: 444, value: "third")
     v.control(.render(s))
-    
+
     // Done!
 
-But rendering with `OT4SnapshotView` always takes `O(n)`.
+But rendering with `OT4SnapshotView` always takes
+`O(n log n)` where `n` is total number of nodes in tree.
 Choose if you need something quick and dirty working stuff.
 
 Or if you're willing to write more code, you can implement
