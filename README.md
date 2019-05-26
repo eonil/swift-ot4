@@ -17,9 +17,10 @@ Cocoa Binding is deprecated, and not the solution.
 
 
 
-Here OT4 is in rescue!
---------------------------
-`OT4View` is fully persistent datastructure based tree rendering view.
+Painless Tree Interaction
+----------------------------
+`OT4View` is persistent datastructure based tree rendering view with fully idempotent
+rendering behavior.
 
     typealias Source = OT4Source<Int,String>
     typealias View = OT4View<Source,OT4ItemView<String>> 
@@ -37,15 +38,18 @@ You'll get this.
 
 ![ScreenShot](OT4Demo/ScreenShot.png)
 
-As `Source` is persistent, it keeps all version of snapshots and changed key set.
-With that informations, view can recover diff information quickly in `O(d * log(n))` 
-time where `d` is number of changed nodes and `n` is number of total nodes. 
-Tree mutators like inserting/updating/removing node takes `O(log(n))` time.
+Let's consider hash-table look-up and tree navigation as `O(1)`.
 
-Regardless of many operations you performed, only 4 operations 
-will be tracked at maximum. More operation history will be lost.
+As `Source` is persistent, it keeps all versions of snapshots and changed key set.
+With that informations, view can recover diff information quickly in `O(d)` 
+time where `d` is number of changed nodes. 
+Tree mutators like inserting/updating/removing node takes `O(1)` time.
+
+Regardless of how many operations you performed, only last 4 operations 
+will be tracked at maximum. Tracking informations for any older operation will be lost.
+(only tracking informations, final snapshot will be kept)
 If diff information is lost and the view cannot continuously track the state, 
-rendering takes `O(n * log(n))` time.
+rendering takes `O(n)` time where `n` is total number of nodes in the tree.
 
 Also rendering is fully **idempotent**. Passing same value to the view always
 provides same final rendering.
