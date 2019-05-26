@@ -108,6 +108,7 @@
 		4500588B22981FD500681A98 /* PD5Bucket64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PD5Bucket64.swift; sourceTree = "<group>"; };
 		4500588C22981FD500681A98 /* PD5Pair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PD5Pair.swift; sourceTree = "<group>"; };
 		45250004229A234500EBC602 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot.png; sourceTree = "<group>"; };
+		45250005229A26D100EBC602 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		45477A8D2298DB14000EFEEE /* OT4Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OT4Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45477A8F2298DB14000EFEEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45477A912298DB14000EFEEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				45C3A62D2299283E00285493 /* README.md */,
+				45250005229A26D100EBC602 /* LICENSE.md */,
 				4500586D22981FD500681A98 /* HAMT */,
 				4562EB7F2290355300D6C74A /* OT4 */,
 				4562EB8C2290356400D6C74A /* OT4UnitTests */,
