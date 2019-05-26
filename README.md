@@ -69,8 +69,9 @@ You gonna see something like this.
 For Snapshot to Snapshot Rendering
 -----------------------------------------------
 `OT4Source` based rendering requires you to keep once
-created value and mutate it. If you don't have choice 
-and want simple snapshot to snapshot rendering
+created value and mutate in-place because to keep internally
+generated tracking informations. If you don't have choice 
+and want just simple snapshot to snapshot rendering
 you can use `OT4SnapshotView` instead of.
 
     let v = OT4SnapshotView<OT4KeyValueTree>
