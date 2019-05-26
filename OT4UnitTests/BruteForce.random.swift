@@ -36,3 +36,17 @@ extension HAMT where Key: Comparable {
         return (k,v)
     }
 }
+
+extension OT4SnapshotProtocol where Identity: Comparable {
+    func reproducibleRandom(_ r: inout ReproduciblePRNG) -> (Identity,State)? {
+        // Hash-table is not stabley ordered.
+        // Simple random query is NOT reproducible.
+        // Sort them and select random one in it.
+        guard count > 0 else { return nil }
+        let ks = identities.sorted()
+        let i = r.next() % ks.count
+        let k = ks[i]
+        let v = self.state(of: k)
+        return (k,v)
+    }
+}

@@ -38,24 +38,24 @@ final class TestTreeView1: NSView {
         fillDemoData()
     }
     private func fillDemoData() {
-//        do {
-//            let c = 10_000
-//            let opidxs = Array(0..<c).shuffled()
-//            src.timeline.insert("\(-c)", for: -c, at: [])
-//            for i in 1..<c {
-//                let idxp = src.timeline.last!.randomIndexPath(i) ?? []
-//                let idxp1 = (idxp == [] || opidxs[i] % 2 == 0) ? idxp.appending(0) : idxp
-//                src.timeline.insert("\(-i)", for: -i, at: idxp1)
-//                if i % 1_000 == 0 {
-//                    print("inserted \(i)...")
-//                }
-//            }
-//        }
+        do {
+            let c = 10_000
+            let opidxs = Array(0..<c).shuffled()
+            src.timeline.insert("\(-c)", for: -c, at: [])
+            for i in 1..<c {
+                let idxp = src.timeline.last!.randomIndexPath(i) ?? []
+                let idxp1 = (idxp == [] || opidxs[i] % 2 == 0) ? idxp.appending(0) : idxp
+                src.timeline.insert("\(-i)", for: -i, at: idxp1)
+                if i % 1_000 == 0 {
+                    print("inserted \(i)...")
+                }
+            }
+        }
 
-        src.timeline.insert("This", for: 1, at: [])
-        src.timeline.insert("is", for: 2, at: [0])
-        src.timeline.insert("a", for: 3, at: [0,0])
-        src.timeline.insert("demo!", for: 4, at: [1])
+//        src.timeline.insert("This", for: 1, at: [])
+//        src.timeline.insert("is", for: 2, at: [0])
+//        src.timeline.insert("a", for: 3, at: [0,0])
+//        src.timeline.insert("demo!", for: 4, at: [1])
         ot4v.control(.render(src))
     }
     private func process(_ n: View.Note) {

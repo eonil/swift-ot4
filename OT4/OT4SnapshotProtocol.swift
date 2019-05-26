@@ -15,7 +15,9 @@ public protocol OT4SnapshotProtocol {
     associatedtype Path: RandomAccessCollection
         where
         Path.Element == Identity
-
+    associatedtype IdentitySequence: Sequence
+        where
+        IdentitySequence.Element == Identity
     associatedtype ChildCollection:
         RandomAccessCollection
         where
@@ -29,6 +31,8 @@ public protocol OT4SnapshotProtocol {
     /// Total number of nodes in this snapshot.
     /// - Complexity: Must be O(1).
     var count: Int { get }
+
+    var identities: IdentitySequence { get }
 
     /// Whether this snapshot contains a node for an identity.
     /// - Complexity: Must be <= O(log n)

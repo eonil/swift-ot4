@@ -195,7 +195,7 @@ private final class ItemView: NSTextField, OT4ItemViewProtocol {
 
 private extension OT4Snapshot where Identity: Comparable {
     func selectRandomIdentity(_ r: inout ReproduciblePRNG) -> Identity? {
-        guard let kv = state_map.reproducibleRandom(&r) else { return nil }
+        guard let kv = reproducibleRandom(&r) else { return nil }
         return kv.0
     }
     func makeRandomInsertionPoint(_ r: inout ReproduciblePRNG) -> IndexPath {

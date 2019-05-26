@@ -17,11 +17,12 @@
 		450058A622981FD500681A98 /* PD5Slot64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4500588A22981FD500681A98 /* PD5Slot64.swift */; };
 		450058A722981FD500681A98 /* PD5Bucket64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4500588B22981FD500681A98 /* PD5Bucket64.swift */; };
 		450058A822981FD500681A98 /* PD5Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4500588C22981FD500681A98 /* PD5Pair.swift */; };
+		450AD2FE229A507A00485711 /* OT4NaiveSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450AD2FD229A507A00485711 /* OT4NaiveSnapshot.swift */; };
+		450AD300229A5BA200485711 /* OT4Snapshot.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450AD2FF229A5BA200485711 /* OT4Snapshot.extension.swift */; };
 		4525000C229A391700EBC602 /* libOT4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562EB7E2290355300D6C74A /* libOT4.a */; };
 		45250014229A39BB00EBC602 /* OT4VC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C3A65B22998B3400285493 /* OT4VC2.swift */; };
 		45250015229A39BB00EBC602 /* OT4Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562EB682290137A00D6C74A /* OT4Identity.swift */; };
 		45250016229A39BB00EBC602 /* OT4TreeProtocol.indexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562EB6C2290137A00D6C74A /* OT4TreeProtocol.indexPath.swift */; };
-		45250017229A39BB00EBC602 /* CachingReversePathSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562EB72229016CD00D6C74A /* CachingReversePathSolver.swift */; };
 		45250018229A39BB00EBC602 /* VisibilityTracking2Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E7FF0D2298F99200C11078 /* VisibilityTracking2Tree.swift */; };
 		45250019229A39BB00EBC602 /* VisibilityTracking2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C3A65D2299FC8D00285493 /* VisibilityTracking2Controller.swift */; };
 		45250032229A39C500EBC602 /* OT4SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C3A62E22992ABD00285493 /* OT4SnapshotView.swift */; };
@@ -117,6 +118,8 @@
 		4500588A22981FD500681A98 /* PD5Slot64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PD5Slot64.swift; sourceTree = "<group>"; };
 		4500588B22981FD500681A98 /* PD5Bucket64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PD5Bucket64.swift; sourceTree = "<group>"; };
 		4500588C22981FD500681A98 /* PD5Pair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PD5Pair.swift; sourceTree = "<group>"; };
+		450AD2FD229A507A00485711 /* OT4NaiveSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OT4NaiveSnapshot.swift; sourceTree = "<group>"; };
+		450AD2FF229A5BA200485711 /* OT4Snapshot.extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OT4Snapshot.extension.swift; sourceTree = "<group>"; };
 		45250004229A234500EBC602 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot.png; sourceTree = "<group>"; };
 		45250005229A26D100EBC602 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		45250006229A2F6900EBC602 /* NOTE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTE.md; sourceTree = "<group>"; };
@@ -131,7 +134,6 @@
 		4562EB682290137A00D6C74A /* OT4Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OT4Identity.swift; sourceTree = "<group>"; };
 		4562EB6A2290137A00D6C74A /* OT4DefaultProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OT4DefaultProtocol.swift; sourceTree = "<group>"; };
 		4562EB6C2290137A00D6C74A /* OT4TreeProtocol.indexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OT4TreeProtocol.indexPath.swift; sourceTree = "<group>"; };
-		4562EB72229016CD00D6C74A /* CachingReversePathSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingReversePathSolver.swift; sourceTree = "<group>"; };
 		4562EB74229020BE00D6C74A /* OT4Interaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OT4Interaction.swift; sourceTree = "<group>"; };
 		4562EB7E2290355300D6C74A /* libOT4.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOT4.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4562EB8B2290356400D6C74A /* OT4UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OT4UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,7 +256,6 @@
 				45C3A65B22998B3400285493 /* OT4VC2.swift */,
 				4562EB682290137A00D6C74A /* OT4Identity.swift */,
 				4562EB6C2290137A00D6C74A /* OT4TreeProtocol.indexPath.swift */,
-				4562EB72229016CD00D6C74A /* CachingReversePathSolver.swift */,
 				45E7FF0D2298F99200C11078 /* VisibilityTracking2Tree.swift */,
 				45C3A65D2299FC8D00285493 /* VisibilityTracking2Controller.swift */,
 			);
@@ -339,6 +340,8 @@
 				45C3A63B2299386500285493 /* OT4Source.swift */,
 				45C3A6392299385800285493 /* OT4Timeline.swift */,
 				45C3A6372299383A00285493 /* OT4Snapshot.swift */,
+				450AD2FF229A5BA200485711 /* OT4Snapshot.extension.swift */,
+				450AD2FD229A507A00485711 /* OT4NaiveSnapshot.swift */,
 				45C3A63D2299387F00285493 /* OT4KeyValueTree.swift */,
 				45C3A6322299371200285493 /* OT4ItemView.swift */,
 			);
@@ -584,9 +587,10 @@
 				45C3A6382299383A00285493 /* OT4Snapshot.swift in Sources */,
 				45250039229A39C900EBC602 /* OT4Branchability.swift in Sources */,
 				450058A722981FD500681A98 /* PD5Bucket64.swift in Sources */,
+				450AD2FE229A507A00485711 /* OT4NaiveSnapshot.swift in Sources */,
 				45250034229A39C900EBC602 /* OT4View.swift in Sources */,
+				450AD300229A5BA200485711 /* OT4Snapshot.extension.swift in Sources */,
 				45250016229A39BB00EBC602 /* OT4TreeProtocol.indexPath.swift in Sources */,
-				45250017229A39BB00EBC602 /* CachingReversePathSolver.swift in Sources */,
 				450058A422981FD500681A98 /* PD5Iterator.swift in Sources */,
 				45250037229A39C900EBC602 /* OT4SnapshotProtocol.swift in Sources */,
 				4500588E22981FD500681A98 /* PD5Bucket.swift in Sources */,

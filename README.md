@@ -8,9 +8,12 @@ Using Apple `AppKit` is painful even for Apple fanatics,
 and one of the most painful point is `NSOutlineView`.
 As like other classes in `AppKit`, this class is designed
 as a half-finished assembly, and you need to implement
-the other half to use without pain. Apple's original 
-answer for convenience was `NSTreeController`,
-but IMO, it is not the solution.
+the rest to use it. 
+
+There're many opinions about the rest part. 
+Apple's original answer for convenience was
+Cocoa Binding with `NSTreeController`, but IMO, 
+Cocoa Binding is deprecated, and not the solution.
 
 
 
