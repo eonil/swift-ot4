@@ -30,7 +30,6 @@ public struct OT4Snapshot<Key,Value>: OT4SnapshotProtocol, OT4DefaultProtocol wh
 
     private(set) var naive = OT4NaiveSnapshot<Key,Value>()
 
-
     public init() {}
     public var isEmpty: Bool {
         return naive.isEmpty
@@ -38,22 +37,26 @@ public struct OT4Snapshot<Key,Value>: OT4SnapshotProtocol, OT4DefaultProtocol wh
     public var count: Int {
         return naive.count
     }
-    /// O(n) for now.
-    public var identities: [Identity] {
-        return Array(naive.identities)
+    public var identities: IdentitySequence {
+        return IdentitySequence(source: naive.identities)
     }
-//    public struct IdentitySequence: Sequence {
-//        var source: HAMT<Key,Value>.KeySequence
-//        public func makeIterator() -> Iterator {
+    public struct IdentitySequence: Sequence {
+        var source: HAMT<Key,Value>.KeySequence
+        public func makeIterator() -> Iterator {
+            return Iterator(source: AnyIterator(source.makeIterator()))
 //            return Iterator(source: source.makeIterator())
-//        }
-//        public struct Iterator: IteratorProtocol {
+        }
+        public struct Iterator: IteratorProtocol {
+            var source: AnyIterator<Identity>
+            // Using concrete type here makes compiler crash.
+            // Uncomment this line if compiler gets better.
 //            var source: HAMT<Key,Value>.KeySequence.Iterator
-//            public mutating func next() -> Identity? {
-//                return source.next()
-//            }
-//        }
-//    }
+            public mutating func next() -> Identity? {
+                return source.next()
+            }
+        }
+    }
+
 
     public func contains(_ id: Key) -> Bool {
         return naive.contains(id)

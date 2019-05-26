@@ -32,6 +32,7 @@ public protocol OT4SnapshotProtocol {
     /// - Complexity: Must be O(1).
     var count: Int { get }
 
+    /// Sequence of all identities in this snapshot.
     var identities: IdentitySequence { get }
 
     /// Whether this snapshot contains a node for an identity.
