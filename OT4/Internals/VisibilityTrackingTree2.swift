@@ -112,6 +112,30 @@ extension VisibilityTrackingTree2 {
     ///     to gain O(depth * log(max degree)) performance.
     ///
     func findIndexPath(forVisibleRowIndex i: Int) -> IndexPath {
+        //        if let idxp = presolutions(i) { return idxp } // Return cached result.
+        //        if i == 0 { return [] }
+        //        // Check previous one.
+        //        if let idxp = presolutions(i - 1) {
+        //            let j = idxp.last! - 1
+        //            if j > 0 {
+        //                let idxp1 = idxp.dropLast()
+        //                let idxp2 = idxp1.appending(j)
+        //                return idxp2
+        //            }
+        //        }
+        //        // Check next one.
+        //        if let idxp = presolutions(i + 1) {
+        //            let j = idxp.last! + 1
+        //            let idxp1 = idxp.dropLast()
+        //            let idxp2 = idxp1.appending(j)
+        //            let n = self[idxp1]
+        //            assert(n.isExpanded)
+        //            if j < n.subtrees.count {
+        //                return idxp2
+        //            }
+        //        }
+
+        
         guard i < totalVisibleCount else { fatalError("Index is out of range.") }
         if i == 0 { return [] }
         var j = i - 1

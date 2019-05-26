@@ -10,16 +10,39 @@ import Foundation
 import AppKit
 
 ///
-/// This is internal controller of `OT4View`.
-/// Everything is exposed internally for testing.
-/// Anyway it doesn't mean it's okay to modify them freely.
+///
+/// Outline tree controller exposed internally for easier testing.
+///
+/// Sole purpose of this class is exposing internal controller
+/// to test facility. To test states at each stage, all internal
+/// states are exposed publicly but SHOULD NOT be modified
+/// externally. To prevent such access all properties are
+/// externally read-only, but I couldn't prevent access to mutators
+/// of reference-types.
+///
 /// Access only `control/note` directly. DO NOT modify
 /// any other properties.
 ///
-final class OT4VC2<Source,ItemView>: NSObject, NSOutlineViewDataSource, NSOutlineViewDelegate where
-Source: OT4SourceProtocol,
-Source.Timeline.Snapshot: OT4DefaultProtocol,
-ItemView: OT4ItemViewProtocol,
+/// The only stuffs are allowed to access are;
+/// - `control`
+/// - `note`
+/// - `outlineView` to place the view instance on a superview.
+///   DO NOT modify any of its properties externally.
+///
+/// - Note:
+///     When you write test code, please note that `control`/`note`
+///     are all asynchronous. You need to cycle main thread GCDQ
+///     to make sure them finished. Easy way to do this is
+///     pushing your checking code to `OperationQueue.main`.
+///
+final class OT4VC2<Source,ItemView>:
+    NSObject,
+    NSOutlineViewDataSource,
+    NSOutlineViewDelegate
+    where
+    Source: OT4SourceProtocol,
+    Source.Timeline.Snapshot: OT4DefaultProtocol,
+    ItemView: OT4ItemViewProtocol,
 ItemView.State == Source.Timeline.Snapshot.State {
     typealias View = OT4View<Source,ItemView>
     typealias Snapshot = Source.Timeline.Snapshot

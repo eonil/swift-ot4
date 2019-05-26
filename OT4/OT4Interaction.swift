@@ -23,10 +23,13 @@ extension OT4VC2 {
     }
 }
 
-/// Defines output of `OT4View`.
+
+///
+/// An immutable snapshot of interaction state of
+/// an `OT4View`.
 ///
 /// `OT4View` emits whole interaction state for each time it
-/// changes. First point of this data is tracking selection.
+/// changes. Main purpose of this data is tracking selection.
 ///
 /// Why Identity Based?
 /// -------------------
