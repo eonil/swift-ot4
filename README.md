@@ -91,8 +91,7 @@ Performance
 ----------------
 In my benchmark, `OT4View` performs at 1,000 ops/s with 
 100,000 existing items. Single operation takes about 1ms to 
-finish. It seems major bottleneck is inefficiency in HAMT
-datastructure.
+finish. It seems major bottleneck is in my HAMT implementation.
 
 But It Does Not Cover Everything
 ----------------------------------------
