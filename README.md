@@ -1,7 +1,17 @@
+SUSPENDED!
+----------
+This library has been replaced by 
+[`LTView`](https://github.com/eonil/swift-ltview) 
+for more simplicity and won't be maintained anymore
+until I need for it.
+
+
+
 OT4
 ====
 A persistent datastructure based idempotent outline-view.
 Eonil, May 2019.
+
 
 This is one of trials to make `AppKit` less painful.
 Using Apple `AppKit` is painful even for Apple fanatics,

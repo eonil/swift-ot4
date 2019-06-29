@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Default implementation of `OT4SnapshotProtoco`.
+/// Default implementation of `OT4SnapshotProtocol`.
 ///
 /// This type provides naive base implementation of default snapshot.
 ///

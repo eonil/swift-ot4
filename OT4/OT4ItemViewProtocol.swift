@@ -24,4 +24,3 @@ public enum OT4ItemViewControl<State> {
 public enum OT4ItemViewNote<State> {
     case edit(State)
 }
-

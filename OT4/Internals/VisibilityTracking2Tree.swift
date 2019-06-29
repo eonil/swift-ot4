@@ -18,6 +18,10 @@
 ///     You can insert/modify/remove element in existing tree
 ///     and it will take O(depth).
 ///
+/// - Note:
+///     Performance can be improved by employing summation B-Tree. (SBTL)
+///     In that case, performance would be O(depth * log(max degree)).
+///
 struct VisibilityTracking2Tree: OT4TreeProtocol, OT4MutableTreeProtocol {
     var isExpanded = false
     var subtrees = VTTSubtreeCollection()
@@ -75,7 +79,7 @@ extension VisibilityTracking2Tree {
     ///
     /// For given tree with n visible elements,
     /// - O(depth * max degree) at average if the tree is well balanced.
-    ///   O(depth * max degree) is guaranteed to be <O(n).
+    ///   O(depth * max degree) is guaranteed to be < O(n).
     /// - O(1) at best if you're resolving for a consecutive
     ///   sibling with cached resolution.
     /// - O(n) at worst.

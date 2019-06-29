@@ -8,13 +8,13 @@
 
 import Foundation
 
-/// Default implementation of `OT4SnapshotProtoco`.
+/// Default implementation of `OT4SnapshotProtocol`.
 ///
 /// This wraps a naive implementation with a small cache.
 ///
 /// Questions
 /// ---------
-/// Current HAMT implementation is 10x-1000x
+/// Current HAMT implementation is 2x-50x
 /// times slower than `Swift.Dictionary`.
 /// Would having small local cache as `Swift.Dictionary`
 /// improve performance?
